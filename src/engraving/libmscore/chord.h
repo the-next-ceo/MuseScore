@@ -138,7 +138,6 @@ public:
     EngravingObject* scanParent() const override;
     EngravingObject* scanChild(int idx) const override;
     int scanChildCount() const override;
-    void scanElements(void* data, void (* func)(void*, EngravingItem*), bool all=true) override;
 
     Chord* clone() const override { return new Chord(*this, false); }
     EngravingItem* linkedClone() override { return new Chord(*this, true); }

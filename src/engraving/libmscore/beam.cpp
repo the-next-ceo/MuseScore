@@ -1824,4 +1824,17 @@ void Beam::startDrag(EditData& editData)
 {
     initBeamEditData(editData);
 }
+
+//---------------------------------------------------------
+//   scanElements
+//---------------------------------------------------------
+
+void Beam::scanElements(void* data, void (* func)(void*, EngravingItem*), bool all)
+{
+    ChordRest* cr = !_elements.isEmpty() ? _elements[0] : nullptr;
+    if (!all && cr && cr->measure()->stemless(cr->staffIdx())) {
+        return;
+    }
+    EngravingItem::scanElements(data, func, all);
+}
 }

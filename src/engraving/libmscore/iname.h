@@ -61,6 +61,8 @@ public:
     SysStaff* sysStaff() const { return _sysStaff; }
     void setSysStaff(SysStaff* s) { _sysStaff = s; }
 
+    void scanElements(void* data, void (* func)(void*, EngravingItem*), bool all=true) override;
+
     Fraction playTick() const override;
     bool isEditable() const override { return false; }
     mu::engraving::PropertyValue getProperty(Pid propertyId) const override;

@@ -2344,4 +2344,18 @@ Sid Harmony::getPropertyStyle(Pid pid) const
     }
     return TextBase::getPropertyStyle(pid);
 }
+
+//---------------------------------------------------------
+//   scanElements
+//---------------------------------------------------------
+
+void Harmony::scanElements(void* data, void (* func)(void*, EngravingItem*), bool all)
+{
+    Q_UNUSED(all);
+    // don't display harmony in palette
+    if (!explicitParent()) {
+        return;
+    }
+    func(data, this);
+}
 }

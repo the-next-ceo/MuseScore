@@ -117,18 +117,6 @@ void BSymbol::add(EngravingItem* e)
 }
 
 //---------------------------------------------------------
-//   scanElements
-//---------------------------------------------------------
-
-void BSymbol::scanElements(void* data, void (* func)(void*, EngravingItem*), bool all)
-{
-    func(data, this);
-    foreach (EngravingItem* e, _leafs) {
-        e->scanElements(data, func, all);
-    }
-}
-
-//---------------------------------------------------------
 //   remove
 //---------------------------------------------------------
 

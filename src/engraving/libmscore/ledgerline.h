@@ -54,6 +54,8 @@ public:
     mu::PointF pagePos() const override;        ///< position in page coordinates
     Chord* chord() const { return toChord(explicitParent()); }
 
+    void scanElements(void* data, void (* func)(void*, EngravingItem*), bool all=true) override;
+
     qreal len() const { return _len; }
     qreal lineWidth() const { return _width; }
     void setLen(qreal v) { _len = v; }
